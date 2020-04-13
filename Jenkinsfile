@@ -5,7 +5,10 @@ pipeline
     {
         stage('Just test')
         {
-            bat 'echo Deu certo!'
+        	steps
+        	{
+        		bat 'echo Deu certo!'    
+        	}
         }
     }
 }
