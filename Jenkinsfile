@@ -17,6 +17,7 @@ pipeline
         		bat 'mvn test'    
         	}
         }
+        
 		stage('Sonar Analysis')
         {
         	environment {
@@ -38,7 +39,7 @@ pipeline
     			sleep(10)
 				timeout(time: 1, unit: 'MINUTES')
 				{
-	    		    waitForQualityGate aboutPipeline: true    			                           
+	    		    waitForQualityGate abortPipeline: true    			                           
               	}
     		}
 		}
