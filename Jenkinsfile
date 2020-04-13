@@ -56,8 +56,11 @@ pipeline
 		{
     		steps
     		{
-    		    git credentialsId: 'github_login', url: 'https://github.com/rduarte-atomic/tasks-restAssured'
-    		    bat 'mvn test'
+    			dir('api-test')
+    			{
+					git credentialsId: 'github_login', url: 'https://github.com/rduarte-atomic/tasks-restAssured'
+    		    	bat 'mvn test'    			    
+    			}
     		}
 		}
     }
