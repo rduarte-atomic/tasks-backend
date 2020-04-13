@@ -51,6 +51,15 @@ pipeline
     		    deploy adapters: [tomcat8(credentialsId: 'tomcat_login', path: '', url: 'http://localhost:8001/')], contextPath: 'asks-backend', war: 'target/tasks-backend.war'
     		}
 		}
+		
+		stage('API Tests')
+		{
+    		steps
+    		{
+    		    git credentialsId: 'github_login', url: 'https://github.com/rduarte-atomic/tasks-restAssured'
+    		    bat 'mvn test'
+    		}
+		}
     }
 }
 
