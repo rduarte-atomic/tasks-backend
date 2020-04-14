@@ -76,6 +76,17 @@ pipeline
 
     		}
 		}
+		stage('API Tests')
+		{
+    		steps
+    		{
+    			dir('functional-test')
+    			{
+					git credentialsId: 'github_login', url: 'https://github.com/rduarte-atomic/tasks-functional-tests'
+    		    	bat 'mvn test'    			    
+    			}
+    		}
+		}
     }
 }
 
