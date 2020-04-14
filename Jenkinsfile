@@ -76,7 +76,7 @@ pipeline
 
     		}
 		}
-		stage('API Tests')
+		stage('Functional Tests')
 		{
     		steps
     		{
